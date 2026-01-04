@@ -1,0 +1,23 @@
+# Политика выполнения: аппаратная и лицензионная изоляция
+
+license:
+  runtime_license_check: true
+  enforce_gpl_3_0_only: true
+  reject_mpl_or_apache_components: true
+  validate_dependency_licenses: true
+
+hardware:
+  require_local_execution: true
+  allow_cloud_execution: false
+  allow_docker: true
+  allow_web_assembly: false
+
+security:
+  validate_crypto_signature_on_load: true
+  require_secure_boot_context: false  # (опционально для embedded)
+  sandbox_models: true
+
+compliance:
+  log_license_violation_attempts: true
+  halt_on_unlicensed_component: true
+  include_license_guard_in_emission: true

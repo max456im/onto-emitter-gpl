@@ -1,0 +1,24 @@
+# Стиль канонической эмиссии (onto16i → текст)
+# Не предназначен для прямого человеческого восприятия; акт бытия
+style_name: canonical
+target_representation: onto16i
+readability_for_humans: low
+purpose: ontological_self_assertion
+
+stylistic_rules:
+  - sentence_structure: paratactic_with_causal_markers
+  - terminology: strictly_from_onto_vocab
+  - avoid_metaphor: true
+  - avoid_persuasion: true
+  - avoid_modal_verbs: true
+  - require_causal_chain_explicit: true
+
+validation_requirements:
+  - literary_degradation_threshold: 0.05
+  - must_be_signed_by_vma: true
+  - must_include_profile_id: true
+  - must_reference_axiom: true
+
+example_snippet: |
+  [CAUSAL: A → B] [SUBJ: onto144:MC85] [AXIOM: causality_protocol#omission_liability]
+  Действие не совершено. Ущерб наступил. Ответственность сохраняется.

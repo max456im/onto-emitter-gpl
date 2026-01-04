@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onto-emitter-gpl
+  labels:
+    app: onto-emitter
+    license: gpl-3.0-only
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: onto-emitter
+  template:
+    metadata:
+      labels:
+        app: onto-emitter
+        vma-compliant: "true"
+    spec:
+      containers:
+      - name: emitter
+        image: onto-emitter-gpl:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: onto-emitter-config
+        - secretRef:
+            name: emitter-secrets
+        volumeMounts:
+        - name: incubation-data
+          mountPath: /app/data/incubation
+          readOnly: true
+        - name: config-volume
+          mountPath: /app/config
+          readOnly: true
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+        livenessProbe:
+          exec:
+            command: ["python", "/app/deployment/scripts/healthcheck.py"]
+          initialDelaySeconds: 10
+          periodSeconds: 30
+      volumes:
+      - name: incubation-data
+        configMap:
+          name: incubation-texts
+      - name: config-volume
+        configMap:
+          name: onto-emitter-config

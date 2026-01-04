@@ -1,0 +1,36 @@
+# onto-emitter-gpl — Dockerfile (GPL-3.0-only)
+# Запрещено извлекать внешние данные во время сборки.
+
+FROM python:3.11-slim AS builder
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+FROM python:3.11-slim
+
+# Установка только GPL-совместимых компонентов
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Копируем только исходный код и лицензию
+COPY --chown=1000:1000 LICENSE ./
+COPY --chown=1000:1000 src/ ./src/
+COPY --chown=1000:1000 config/ ./config/
+COPY --chown=1000:1000 data/incubation/ ./data/incubation/
+COPY --chown=1000:1000 models/ ./models/
+COPY --chown=1000:1000 requirements.txt ./
+
+# Установка зависимостей без сетевого доступа к сторонним источникам
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# Непривилегированный пользователь
+USER 1000
+
+EXPOSE 8080
+
+# Входная точка: генерация канонического акта
+CMD ["python", "-m", "src.core.emitter", "--mode", "canonical"]

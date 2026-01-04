@@ -1,0 +1,28 @@
+# Привязка доменов к лексиконам, стилям и стратегиям
+
+domains:
+  medical:
+    lexicon: "corpus/level_2_individual/domain_lexicons/medical_terms.yaml"
+    emission_style: "corpus/level_2_individual/emission_styles/relational_style.yaml"
+    phase_strategy: "corpus/level_2_individual/phase_strategies/reflective_mode.yaml"
+    temperament_filter: "choleric"
+    chinese_element_filter: "wood"
+    vma_threshold: 0.95
+
+  legal:
+    lexicon: "corpus/level_2_individual/domain_lexicons/legal_terms.yaml"
+    emission_style: "corpus/level_2_individual/emission_styles/canonical_style.yaml"
+    phase_strategy: "corpus/level_2_individual/phase_strategies/reflective_mode.yaml"
+    temperament_filter: "sanguine"
+    chinese_element_filter: "metal"
+    vma_threshold: 0.98
+
+  general:
+    lexicon: "corpus/level_0_fundamental/general_lexicon.yaml"
+    emission_style: "corpus/level_2_individual/emission_styles/relational_style.yaml"
+    phase_strategy: "corpus/level_2_individual/phase_strategies/reactive_mode.yaml"
+    temperament_filter: "any"
+    vma_threshold: 0.7
+
+# Запрет на неопределённые домены
+allow_unknown_domains: false

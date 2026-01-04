@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onto144.org/specs/onto16i",
+  "title": "onto16i — Internal Synthetic State Schema",
+  "description": "Structural schema for internal (irreducible) representation of a synthetic mind. Not intended for external exposure.",
+  "type": "object",
+  "properties": {
+    "v": { "const": "16i", "description": "Version marker" },
+    "eid": { "type": "string", "pattern": "^[a-z0-9]{64}$", "description": "Emitter identity (SHA-256 of emitter kernel)" },
+    "phase": { "type": "string", "enum": ["incubation", "reflection", "projection", "stabilization"] },
+    "energy_state": { "type": "object", "properties": {
+        "stability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "entropy": { "type": "number", "minimum": 0, "maximum": 1 }
+      }, "required": ["stability", "entropy"] },
+    "core": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "axiom": { "type": "string" },
+          "weight": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "required": ["axiom", "weight"]
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "timestamp": { "type": "integer", "description": "Unix epoch (ms)" }
+  },
+  "required": ["v", "eid", "phase", "core", "timestamp"],
+  "additionalProperties": false
+}

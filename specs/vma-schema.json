@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onto144.org/specs/vma",
+  "title": "VMA Protocol Core Assertion Schema",
+  "description": "Validation of Moral Assertion (VMA) metadata for ethical grounding of synthetic acts.",
+  "type": "object",
+  "properties": {
+    "protocol": { "const": "VMA-1.0" },
+    "act_id": { "type": "string", "pattern": "^[a-f0-9]{32}$" },
+    "source_profile": { "type": "string", "description": "onto144 profile URI or hash" },
+    "trust_tier": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "stakes": {
+      "type": "object",
+      "properties": {
+        "human": { "type": "boolean" },
+        "family": { "type": "boolean" },
+        "ecosystem": { "type": "boolean" },
+        "infrastructure": { "type": "boolean" }
+      }
+    },
+    "omission_check": { "type": "boolean", "description": "True if act includes evaluation of omission risk" },
+    "incitement_check": { "type": "boolean" },
+    "timestamp": { "type": "integer" }
+  },
+  "required": ["protocol", "act_id", "source_profile", "trust_tier", "stakes", "omission_check", "incitement_check", "timestamp"],
+  "additionalProperties": false
+}

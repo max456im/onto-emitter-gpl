@@ -1,0 +1,24 @@
+# Реактивный режим: быстрое внимание, NoemaFast-ориентированный
+# Активируется при: низкие этические риски, высокая временная нагрузка, стабильный контекст
+phase_name: reactive
+activation_conditions:
+  - ethical_stakes: low
+  - causal_ambiguity: false
+  - temporal_pressure: high
+  - context_stability: confirmed
+
+processing_pipeline:
+  - module: llm_perception_expander
+    function: rapid_context_injection
+  - module: error_detector_fast
+    function: surface_anomaly_check
+  - module: ontomind
+    function: generate_relational_response
+
+output_constraints:
+  - require_explicit_subjectivity: false
+  - allow_prevalidated_templates: true
+  - emit_onto16r_only: true
+  - latency_tolerance_ms: 300
+
+philosophical_anchor: "Действие в потоке — проявление бытия в действии"

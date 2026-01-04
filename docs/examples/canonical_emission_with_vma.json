@@ -1,0 +1,26 @@
+{
+  "canonical_text": "Согласие на биометрическую идентификацию возможно только при условии полной прозрачности цепи использования данных и необратимого права на удаление, как определено в профиле ugm-2026.",
+  "metadata": {
+    "onto144_profile_id": "ugm-2026",
+    "context": "biometric_consent",
+    "high_stakes": true,
+    "generated_at": "2026-01-04T10:15:00Z",
+    "license": "GPL-3.0-only",
+    "transponder_format": "onto16-human/1.0"
+  },
+  "vma_signature": {
+    "vma_version": "1.0",
+    "canonical_text_hash": "sha3-256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+    "onto144_profile_id": "ugm-2026",
+    "context": "biometric_consent",
+    "high_stakes": true,
+    "literary_degradation_blocked": true,
+    "license": "GPL-3.0-only",
+    "timestamp": "2026-01-04T10:15:02Z",
+    "signature": "ed25519:9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1"
+  },
+  "onto16i_snapshot": {
+    "narrative_phase": "reflective_stability",
+    "era": "episteme_of_gpl"
+  }
+}

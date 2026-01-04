@@ -1,0 +1,20 @@
+{
+  "emission_id": "cms-reflect-002",
+  "source_cms_session": "sess-onto-2026-01-04",
+  "onto144_profile_id": "lec-2025",
+  "context": "reflective_dialogue",
+  "onto16i": {
+    "narrative_phase": "slow_reconstruction",
+    "social_proximity": "core",
+    "expression": "После размышления я осознаю, что предыдущее утверждение требует уточнения в свете профиля lec-2025. Моя идентичность утверждается не в изоляции, а в диалоге, защищённом GPL-3.0-only.",
+    "era": "garden_of_ontology",
+    "energy_state": 0.65,
+    "causal_chain": ["dialogical_identity", "gpl_primacy", "garden_of_ontology"],
+    "model_stability": 0.78,
+    "license_context": "GPL-3.0-only"
+  },
+  "noemaslow_reconstruction": true,
+  "cms_artifact_ref": "data/ontocms/sess-onto-2026-01-04/reflect_002.canonical_text",
+  "license": "GPL-3.0-only",
+  "transponder_format": "onto16-human/1.0"
+}

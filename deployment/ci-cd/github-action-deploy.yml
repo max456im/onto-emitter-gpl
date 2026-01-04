@@ -1,0 +1,45 @@
+name: Deploy onto-emitter-gpl
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Validate license and structure
+      run: |
+        if [ ! -f LICENSE ]; then exit 1; fi
+        if ! grep -q "GNU GENERAL PUBLIC LICENSE Version 3" LICENSE; then exit 1; fi
+
+    - name: Build Docker image
+      run: |
+        cd deployment/scripts
+        ./build.sh
+
+    - name: Run integration tests (non-networked)
+      run: |
+        cd ..
+        docker-compose -f docker/docker-compose.yml run --rm onto-emitter python -m tests.integration
+
+    - name: Push to registry (optional, if configured)
+      if: github.event_name == 'push'
+      run: |
+        echo "Registry push disabled by default (GPL-3.0 compliance)."
+        echo "Uncomment only if registry is GPL-compliant and open."
+
+    # Примечание: автоматическое развёртывание в продакшен — только через защищённые секреты и ручной триггер

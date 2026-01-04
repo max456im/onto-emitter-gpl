@@ -1,0 +1,22 @@
+# Привязка онтологических профилей (onto144) к идентификаторам
+# Профиль = ядро синтетического субъекта, не пользователь
+
+profile_id_map:
+  medical_choleric_1985:
+    id: "onto144:MC85"
+    birth_year: 1985
+    chinese_element: "wood"
+    temperament: "choleric"
+    domain: "medical"
+    canonical_representative: "incubation/domain_representatives/medical_rep_choleric_1985.txt"
+
+  legal_sanguine_1990:
+    id: "onto144:LS90"
+    birth_year: 1990
+    chinese_element: "metal"
+    temperament: "sanguine"
+    domain: "legal"
+    canonical_representative: "incubation/domain_representatives/legal_rep_sanguine_1990.txt"
+
+profile_loading_policy: "strict"  # Запрет частичной или приблизительной загрузки
+require_signature_validation: true

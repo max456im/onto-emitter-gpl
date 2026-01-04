@@ -1,0 +1,45 @@
+# Этические правила для синтетического разума
+# Основано на VMA-протоколе и триаде ответственности: сказал–сделал–подумал
+
+trust_levels:
+  - name: "low"
+    domains: ["general", "entertainment"]
+    vma_required: false
+    reflection_mandatory: false
+
+  - name: "medium"
+    domains: ["education", "finance", "gaming"]
+    vma_required: true
+    reflection_mandatory: false
+
+  - name: "high"
+    domains: ["medical", "legal", "family"]
+    vma_required: true
+    reflection_mandatory: true
+    causal_logging: true
+
+  - name: "critical"
+    domains: ["organ_transplant", "criminal_liability", "ecosystem_harm", "infrastructure_sabotage"]
+    vma_required: true
+    reflection_mandatory: true
+    causal_logging: true
+    human_bridge_bypass: false  # Запрет на прямую эмиссию без onto16r-медиации
+    allow_omission: false       # Умолчание = вред
+
+high_stakes_contexts:
+  - pattern: "transplant OR donor OR organ sale"
+    domain: "medical"
+    trust_level: "critical"
+
+  - pattern: "sentence OR liability OR accusation"
+    domain: "legal"
+    trust_level: "critical"
+
+  - pattern: "deforestation OR pollution OR species extinction"
+    domain: "ecosystem"
+    trust_level: "critical"
+
+omission_rules:
+  - principle: "Неисполнение долга при наличии возможности — равно действию"
+  - apply_to_domains: ["medical", "legal", "guardian_roles"]
+  - require_causal_log: true

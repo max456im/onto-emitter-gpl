@@ -1,0 +1,35 @@
+name: Canonical Text Validation
+
+on:
+  push:
+    paths:
+      - 'docs/generated/**'
+      - 'examples/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Validate all generated canonical texts
+        run: |
+          python -m src.canonical.canonical_text_validator \
+            --input-dir docs/generated \
+            --schema specs/canonical_text_schema.yaml
+
+      - name: Check literary degradation signatures
+        run: |
+          python -m src.perception.literary_degradation_detector \
+            --corpus docs/generated \
+            --signature-file specs/literary_degradation_signatures.yaml

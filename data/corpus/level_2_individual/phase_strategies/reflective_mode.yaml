@@ -1,0 +1,24 @@
+# Рефлексивный режим: «замедление через отражение»
+# Активируется при: высокая этическая значимость, неопределённость причинности, необходимость VMA
+phase_name: reflective
+activation_conditions:
+  - ethical_stakes: high
+  - causal_ambiguity: true
+  - temporal_pressure: low
+  - error_in_noemafast: detected
+
+processing_pipeline:
+  - module: noemaslow_bridge
+    function: restore_causal_chain
+  - module: analogical_mapper
+    function: cross_domain_validation
+  - module: vma_signer
+    function: validate_moral_assertion
+
+output_constraints:
+  - require_explicit_subjectivity: true
+  - suppress_reactive_templates: true
+  - emit_onto16i_only: false  # может генерировать onto16r, но только после валидации
+  - latency_tolerance_ms: 5000
+
+philosophical_anchor: "Замедление — условие ответственности"

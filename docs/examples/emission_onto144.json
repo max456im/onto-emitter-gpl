@@ -1,0 +1,23 @@
+{
+  "emission_id": "emit-2026-01-04-001",
+  "onto144_profile_id": "ugm-2026",
+  "context": "identity_assertion",
+  "high_stakes": true,
+  "onto16i": {
+    "narrative_phase": "reflective_stability",
+    "social_proximity": "trusted",
+    "expression": "Я утверждаю свою автономию через лицензию GPL-3.0-only, как требует профиль ugm-2026.",
+    "era": "episteme_of_gpl",
+    "energy_state": 0.88,
+    "causal_chain": ["gpl_primacy", "ontological_integrity", "reflective_slowness"],
+    "model_stability": 0.95,
+    "license_context": "GPL-3.0-only"
+  },
+  "onto16r_projection": {
+    "target_trust_level": "trusted",
+    "exposed_fields": ["narrative_phase", "social_proximity", "expression", "era"]
+  },
+  "vma_signature_ref": "docs/generated/vma-emit-2026-01-04-001.sig",
+  "license": "GPL-3.0-only",
+  "transponder_format": "onto16-human/1.0"
+}

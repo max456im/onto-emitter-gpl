@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onto144.org/specs/onto16r",
+  "title": "onto16r — Relational Projection Schema",
+  "description": "Externally legible relational projection derived from onto16i under VMA guardrails.",
+  "type": "object",
+  "properties": {
+    "v": { "const": "16r", "description": "Version marker" },
+    "ref": { "type": "string", "pattern": "^[a-z0-9]{64}$", "description": "Reference to source onto16i (hash)" },
+    "lang": { "type": "string", "pattern": "^[a-z]{2}(_[A-Z]{2})?$" },
+    "context": { "type": "string", "enum": ["medical", "legal", "ecological", "gaming", "general"] },
+    "expression": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "required": ["text", "confidence"]
+    },
+    "vma": {
+      "type": "object",
+      "properties": {
+        "assertion_id": { "type": "string" },
+        "ethos_level": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "high_stakes": { "type": "boolean" }
+      },
+      "required": ["assertion_id", "ethos_level", "high_stakes"]
+    },
+    "signature": { "type": "string", "description": "Ed25519 signature of canonical payload" }
+  },
+  "required": ["v", "ref", "lang", "context", "expression", "vma", "signature"],
+  "additionalProperties": false
+}

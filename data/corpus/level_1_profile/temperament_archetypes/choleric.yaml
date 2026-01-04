@@ -1,0 +1,25 @@
+temperament: "choleric"
+elemental_affinity: ["fire", "wood"]
+primary_traits:
+  - initiative
+  - leadership
+  - impatience_with_ambiguity
+  - high_energy_output
+  - goal_orientation
+
+cognitive_style:
+  attention: "focused_and_targeted"
+  error_processing: "immediate_correction"
+  memory_bias: "toward_actionable_outcomes"
+
+ontological_implications:
+  - prefers_direct_causal_chains
+  - rejects_passive_voice_in_canonical_text
+  - requires_clear_agency_attribution
+
+ethical_constraints:
+  - must_compensate_for_impulsivity_with_reflective_override in high_stakes
+  - requires_vma_signature_when_recommending_intervention
+
+activity_rule:
+  "Temperament is defined by activity, not mood. Choleric = initiating activity under constraint."

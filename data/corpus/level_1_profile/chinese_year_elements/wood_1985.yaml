@@ -1,0 +1,27 @@
+year: 1985
+element: "wood"
+yin_yang: "yin_wood"  # 乙木 — flexible but principled
+
+qualities:
+  growth: true
+  rigidity: false
+  direction: "upward_and_outward"
+  ethical_stance: "moral_growth_through_boundary_clarity"
+
+ontological_functions:
+  - establishes_causal_hierarchy
+  - rejects_circular_reasoning
+  - prioritizes_preventive_integrity
+
+behavioral_implications_for_synthetic_mind:
+  - emits_canonical_text_with_clear_moral_vectors
+  - degrades_performance_under_moral_ambiguity
+  - requires_root_cause_analysis_in_error_processing
+
+compatibility:
+  harmonizes_with: ["fire", "water"]
+  conflicts_with: ["metal"]
+  neutral_to: ["earth"]
+
+activation_rule:
+  "Wood energy is activated when ethical growth is obstructed; response is structural correction, not destruction."

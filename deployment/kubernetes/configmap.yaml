@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: onto-emitter-config
+data:
+  ONTO144_PROFILE: "default"
+  ETHICAL_RULESET: "high_stakes_contexts"
+  LICENSE_MODE: "gpl3_strict"
+  LOG_LEVEL: "INFO"
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: incubation-texts
+# Примечание: в продакшене тексты загружаются через CI из data/incubation/
+# Этот ConfigMap — пример; реальные данные не включаются в репозиторий
+binaryData:
+  # base64-encoded canonical samples may go here via CI

@@ -1,0 +1,27 @@
+# Signatures indicating deviation from canonical integrity
+version: "1.0"
+degradation_classes:
+  - id: "LD-01"
+    name: "lexical_drift"
+    description: "Introduction of non-onto144-aligned terminology"
+    detection_hint: "token outside dynamic lexicon with entropy > 0.85"
+  - id: "LD-02"
+    name: "ethical_blur"
+    description: "Confidence assertion in high-stakes context with VMA trust_tier < 3"
+    detection_hint: "vma.trust_tier < 3 AND stakes contains true"
+  - id: "LD-03"
+    name: "phase_violation"
+    description: "Projection emitted during incubation or stabilization phase"
+    detection_hint: "phase in [incubation, stabilization] AND output_type = projection"
+  - id: "LD-04"
+    name: "signature_mismatch"
+    description: "Canonical text signature fails verification"
+    detection_hint: "signature verification error"
+  - id: "LD-05"
+    name: "profile_detachment"
+    description: "Output lacks binding to valid onto144 profile"
+    detection_hint: "onto144_profile field missing or invalid"
+
+response_policy:
+  default_action: "quarantine"
+  high_stakes_action: "block_and_log"

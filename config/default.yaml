@@ -1,0 +1,32 @@
+# Базовая конфигурация onto-emitter-gpl
+# Лицензия: GPL-3.0-only
+# Принцип: изоляция от внешних зависимостей, запуск только в доверенной среде
+
+system:
+  name: "onto-emitter-gpl"
+  version: "0.4.2"
+  license: "GPL-3.0-only"
+
+paths:
+  incubation_dir: "data/incubation"
+  corpus_dir: "data/corpus"
+  training_dir: "data/training/incubation_only"
+  output_dir: "docs/generated"
+  models_dir: "models/ontomind-50m"
+
+execution:
+  default_phase: "reflective"  # reflective | reactive
+  enable_crypto_signing: true
+  require_profile_binding: true
+  allow_external_lexicons: false  # Только внутренние лексиконы
+  hardware_validation: true
+
+serialization:
+  format: "onto16"  # onto16i или onto16r — определяется контекстом
+  compress_output: false
+  include_provenance: true
+
+logging:
+  level: "INFO"
+  log_vma_decisions: true
+  log_phase_transitions: true

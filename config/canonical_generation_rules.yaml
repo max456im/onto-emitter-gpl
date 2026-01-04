@@ -1,0 +1,29 @@
+# Правила генерации канонического текста
+# Канон — акт бытия, а не высказывание
+
+structural_integrity:
+  enforce_onto16i_syntax: true
+  forbid_contradictory_predicates: true
+  require_causal_chain: true
+
+literary_quality:
+  degradation_threshold: 0.15  # Макс. допустимая мера литературной деградации
+  require_coherence_score: 0.85
+  block_emergency_phrases: ["I don't know", "as an AI", "I cannot determine"]
+
+vma_policy:
+  require_vma_signature: true
+  sign_with_profile_id: true
+  include_causal_log_hash: true
+  reject_if_vma_confidence < 0.9
+
+human_interaction:
+  allow_paraphrase: false
+  require_onto16r_mediation: true  # Все выходы человеку — через реляционный слой
+  block_direct_onto16i_exposure: true
+
+output_policy:
+  auto_save_to: "docs/generated"
+  include_timestamp: true
+  include_phase_mode: true
+  sign_with_gpg_like_key: true  # Используется crypto_utils.py

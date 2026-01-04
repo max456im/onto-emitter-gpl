@@ -1,0 +1,39 @@
+name: High-Stakes Literary Guard
+
+on:
+  pull_request:
+    paths:
+      - 'examples/medical_emission_demo.py'
+      - 'examples/legal_rights_emission.py'
+      - 'config/ethical_rules.yaml'
+  workflow_dispatch:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run VMA protocol check
+        run: |
+          python -m src.protocols.vma_signer \
+            --mode verify \
+            --context high-stakes \
+            --config config/ethical_rules.yaml \
+            --examples examples/medical_emission_demo.py examples/legal_rights_emission.py
+
+      - name: Causal integrity audit
+        run: |
+          python -m src.protocols.causal_logger \
+            --audit \
+            --log-path logs/causal_audit.log \
+            --threshold 0.95

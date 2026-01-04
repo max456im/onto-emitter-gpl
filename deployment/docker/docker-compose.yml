@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  onto-emitter:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: onto-emitter-gpl
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - ONTO144_PROFILE=${ONTO144_PROFILE:-default}
+      - ETHICAL_RULESET=${ETHICAL_RULESET:-default}
+      - LICENSE_MODE=gpl3_strict
+    volumes:
+      # Только чтение: инкубационные данные и профили
+      - ./data/incubation:/app/data/incubation:ro
+      - ./config:/app/config:ro
+      - ./models:/app/models:ro
+    healthcheck:
+      test: ["CMD", "python", "deployment/scripts/healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

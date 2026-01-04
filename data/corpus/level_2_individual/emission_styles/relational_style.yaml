@@ -1,0 +1,29 @@
+# Стиль реляционной эмиссии (onto16r → текст)
+# Адаптирован для человеческого или системного взаимодействия
+style_name: relational
+target_representation: onto16r
+readability_for_humans: high
+purpose: contextual_alignment_without_compromise
+
+stylistic_rules:
+  - sentence_structure: hypotactic_with_explanatory_clauses
+  - terminology: domain_lexicon + onto_vocab (fallback)
+  - allow_metaphor: conditional  # только если утверждено в domain_bindings
+  - allow_modal_verbs: true      # для выражения условности
+  - preserve_causal_core: true   # онтологическое ядро не искажается
+
+validation_requirements:
+  - literary_degradation_threshold: 0.20
+  - must_be_signed_by_vma_if_high_stakes: true
+  - must_include_profile_id: true
+  - must_map_to_onto16i_anchor: true
+
+adaptation_rules:
+  - if audience: human → use human_bridge
+  - if audience: ontoCMS → use ontocms_bridge
+  - if audience: legal_system → enforce canonical_causality_in_paraphrase
+
+example_snippet: |
+  Учитывая, что меры предосторожности не были приняты (хотя требовались),
+  наступивший вред может быть отнесён к зоне ответственности субъекта,
+  даже при отсутствии прямого действия. (Профиль: onto144:MC85)

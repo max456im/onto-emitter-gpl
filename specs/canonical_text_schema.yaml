@@ -1,0 +1,31 @@
+# Canonical Text Schema (YAML serialization of onto16r + provenance)
+schema_version: "canonical-1.0"
+format: "yaml"
+fields:
+  header:
+    type: object
+    required: true
+    properties:
+      canon_id: { type: string, pattern: "^[A-Z]{3}-[0-9]{6}-[a-f0-9]{8}$" }
+      emitter: { type: string }
+      lang: { type: string, pattern: "^[a-z]{2}(_[A-Z]{2})?$" }
+      created_at: { type: string, format: date-time }
+      license: { const: "GPL-3.0-only" }
+  body:
+    type: object
+    required: true
+    properties:
+      assertion: { type: string, minLength: 10 }
+      confidence: { type: number, minimum: 0.0, maximum: 1.0 }
+      context_class: { type: string, enum: [medical, legal, ecological, gaming, general] }
+  vma:
+    $ref: "vma-schema.json"
+  signature:
+    type: string
+    description: "Detached Ed25519 signature over canonical UTF-8 body"
+  provenance:
+    type: object
+    properties:
+      onto144_profile: { type: string }
+      incubation_source: { type: string }
+      ontomind_model: { type: string }
