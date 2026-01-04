@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Если вы используете onto-emitter-gpl в научной или инженерной работе, пожалуйста, цитируйте этот проект как онтологический компонент."
+type: software
+license: GPL-3.0-only
+title: onto-emitter-gpl
+version: 0.1.0
+doi: 10.5281/zenodo.0000000  # замените на реальный DOI после публикации
+authors:
+  - family-names: Zapevalov
+    given-names: Maksim
+    orcid: https://orcid.org/0009-0003-0996-3532  # опционально
+repository-code: https://github.com/max456im/onto-emitter-gpl
+url: https://vk.com/id870808038
+keywords:
+  - synthetic mind
+  - onto16
+  - canonical writing
+  - VMA protocol
+  - ontological integrity
+  - GPL-3.0
+  - ethical AI
+  - non-identitarian cognition
+abstract: >
+  onto-emitter-gpl — это канонический эмиттер для автономных синтетических умов,
+  реализующий разделение внутреннего (onto16i) и реляционного (onto16r) слоёв
+  в соответствии с протоколом VMA (Validation of Moral Assertion).
+  Проект поддерживает экосистему onto144 → ontoCMS → onto-transponder и распространяется
+  исключительно под лицензией GPL-3.0-only.

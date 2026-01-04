@@ -1,0 +1,17 @@
+# Core runtime dependencies
+torch>=2.1.0
+transformers>=4.35.0
+pyyaml>=6.0
+jsonschema>=4.19.0
+cryptography>=41.0.0
+requests>=2.31.0
+
+# Optional: for dynamic tokenization and lexical control
+sentencepiece>=0.1.99
+
+# Testing and validation (kept separate in CI, but listed for dev)
+pytest>=7.4.0
+pylint>=3.0.0
+
+# Note: No telemetry, analytics, or user-tracking libraries included.
+# All dependencies support offline, profile-driven operation.

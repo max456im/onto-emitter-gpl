@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onto-emitter-gpl"
+version = "0.4.2"
+description = "Canonical emitter for synthetic minds under onto16i/onto16r architecture"
+authors = [{name = "UG-Mind Collective", email = "gold@ug-mind.org"}]
+license = {text = "GPL-3.0-only"}
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    "torch>=2.1.0",
+    "transformers>=4.35.0",
+    "pyyaml>=6.0",
+    "jsonschema>=4.19.0",
+    "cryptography>=41.0.0",
+    "requests>=2.31.0",
+    "sentencepiece>=0.1.99; extra == 'tokenize'"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pylint>=3.0.0",
+    "black>=23.0.0",
+    "mypy>=1.5.0"
+]
+test = [
+    "pytest>=7.4.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/ug-mind/onto-emitter-gpl"
+Repository = "https://github.com/ug-mind/onto-emitter-gpl"
+Documentation = "https://github.com/ug-mind/onto-emitter-gpl/tree/main/docs"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["core*", "models*", "perception*", "reasoning*", "canonical*", "interfaces*", "protocols*", "ontologies*", "utils*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 96
+target-version = ['py39', 'py310', 'py311']
+
+[tool.pylint.master]
+disable = "C0114,C0115,C0116"  # Allow omission of docstrings in internal modules
